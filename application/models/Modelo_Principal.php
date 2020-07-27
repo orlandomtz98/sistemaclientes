@@ -93,7 +93,12 @@
 
 	public function ProductoMasVendido(){
 		$sql=$this->db->query("SELECT producto, sum(cantidad) total from ventas group by producto order by total desc limit 1")->result();
+		if($sql==null){
+			return "Sin datos";
+		}
+		else{
 		return $sql;
+		}
 	}
 
 	public function VentasMes(){

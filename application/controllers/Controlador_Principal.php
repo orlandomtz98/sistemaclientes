@@ -26,20 +26,30 @@
         foreach ($totalVenta as $var3) {
           $total=$var3->total;
         }
-        $producto=$this->Modelo_Principal->ProductoMasVendido();
-        foreach ($producto as $var4) {
-          $MasVendido=$var4->producto;
+        if($total==null){
+          $total="0";
         }
-        if($MasVendido==null){
+        else{
+          $total=$total;
+        }
+        $producto=$this->Modelo_Principal->ProductoMasVendido();
+        if($producto=="Sin datos"){
           $MasVendido="Sin producto";
         }
         else{
-          $MasVendido=$MasVendido;
+        foreach ($producto as $var4) {
+          $MasVendido=$var4->producto;
         }
-
+      }
         $ventasMes=$this->Modelo_Principal->VentasMes();
         foreach ($ventasMes as $var5) {
           $MontoVentasMes=$var5->total;
+        }
+        if($MontoVentasMes==null){
+          $MontoVentasMes="0";
+        }
+        else{
+          $MontoVentasMes=$MontoVentasMes;
         }
         $this->load->view("inicio",compact("TotalCumpleañeros","cumpleañeros","numClientes","total","MasVendido","MontoVentasMes"));
       }

@@ -341,7 +341,14 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Producto mas vendido</div>
-                       <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $MasVendido?></div>
+                      <?php 
+                        if($MasVendido=="Sin producto"){
+                          echo'<div class="h5 mb-0 font-weight-bold text-gray-800">Sin productos vendidos</div>';
+                        }
+                        else{
+                          echo'<div class="h5 mb-0 font-weight-bold text-gray-800">'.$MasVendido.'</div>';
+                        }
+                      ?>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-star fa-2x text-gray-300"></i>
