@@ -30,6 +30,12 @@
         foreach ($producto as $var4) {
           $MasVendido=$var4->producto;
         }
+        if($MasVendido==null){
+          $MasVendido="Sin producto";
+        }
+        else{
+          $MasVendido=$MasVendido;
+        }
 
         $ventasMes=$this->Modelo_Principal->VentasMes();
         foreach ($ventasMes as $var5) {
